@@ -1,0 +1,48 @@
+# Python İlgili İzinler
+
+# Bytecode dosyaları
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Çalışma ortamı ve sanal ortamlar
+env/
+venv/
+ENV/
+.venv/
+.virtualenv/
+
+# Pytest cache ve test sonuçları
+.cache/
+.tox/
+.nox/
+.pytest_cache/
+.coverage
+htmlcov/
+*.cover
+coverage.xml
+
+# Paketleme ve dağıtım
+*.egg-info/
+.installed.cfg
+*.egg
+*.whl
+dist/
+build/
+*.manifest
+*.spec
+
+# Debug ve log dosyaları
+*.log
+*.pot
+*.sqlite3
+*.db
+
+# Proje IDE Dosyaları 
+.idea/
+*.iml
+.vscode/
+*.sublime-project
+.DS_Store
+
+# Node `npm_modules` file📂 ## Main
