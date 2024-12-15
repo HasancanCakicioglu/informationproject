@@ -7,13 +7,15 @@ import requests
 import base64
 import json
 
+base_url = "https://informationproject.onrender.com"
+
 # Generate RSA key pair for client
 client_key = RSA.generate(2048)
 client_public_key = client_key.publickey().export_key()
-client_private_key = client_key.export_key()
+
 
 # Fetch server public key
-response = requests.get("http://localhost:3000/public-key")
+response = requests.get(f"{base_url}/public-key")
 server_public_key = RSA.import_key(response.text)
 
 # Socket.IO client
@@ -38,13 +40,13 @@ def login():
     # Send login request
     try:
         response = requests.post(
-            "http://localhost:3000/login",
+            f"{base_url}/login",
             json={"username": username, "password": password},
         )
         if response.status_code == 200 and response.json().get("success"):
             messagebox.showinfo("Success", "Login successful!")
             show_chat_ui()
-            sio.connect("http://localhost:3000")
+            sio.connect(base_url)
         else:
             messagebox.showerror("Error", "Invalid credentials.")
     except Exception as e:
